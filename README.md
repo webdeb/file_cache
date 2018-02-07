@@ -1,6 +1,6 @@
 # FileCache
 
-**TODO: Add description**
+Simply store arbitrary data into files, it has just two functions, `store` & `load`
 
 ## Installation
 
