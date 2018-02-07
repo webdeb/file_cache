@@ -2,9 +2,9 @@ defmodule FileCacheTest do
   use ExUnit.Case
   doctest FileCache
 
-  # setup_all ctx do
-    # on_exit(ctx, fn -> FileCache.clear() end)
-  # end
+  setup_all ctx do
+    on_exit(ctx, fn -> FileCache.clear() end)
+  end
 
   test "stores and loads DATA" do
     FileCache.store(:test, "DATA")
