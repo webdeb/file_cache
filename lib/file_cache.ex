@@ -16,6 +16,7 @@ defmodule FileCache do
   """
   def load(id) do
     result = File.read(path_by_id(id))
+
     case result do
       {:ok, binary} -> :erlang.binary_to_term(binary)
       _ -> nil
@@ -34,6 +35,6 @@ defmodule FileCache do
   end
 
   defp path() do
-    Application.get_env(:file_cache, :path, Path.join(File.cwd!, "cache"))
+    Application.get_env(:file_cache, :path, Path.join(File.cwd!(), "cache"))
   end
 end

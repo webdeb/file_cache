@@ -2,5 +2,4 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :file_cache,
-  path: "/tmp/appcache"
+config :file_cache, path: "/tmp/appcache"
