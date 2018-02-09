@@ -39,7 +39,8 @@ defmodule FileCache.MixProject do
   defp deps do
     [
       {:benchee, "~> 0.11", only: :dev},
-      {:ex_doc, "~> 0.18", only: :dev}
+      {:ex_doc, "~> 0.18", only: :dev},
+      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false}
     ]
   end
 end
