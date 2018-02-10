@@ -26,7 +26,7 @@ defmodule FileCache do
   end
 
   @doc """
-  `clear/0` removes the whole cache directory and `clear/1` removes the specific cache
+  removes the whole cache directory
   """
   @spec clear() :: {:ok, list}
   def clear() do
