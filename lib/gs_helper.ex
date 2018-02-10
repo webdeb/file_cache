@@ -1,36 +1,33 @@
 defmodule FileCache.GSHelper do
   @moduledoc """
-  This module helps to store and load your GenServer state in onterminate and init
+  This module helps to store and load your GenServer state automatically.
+
   Use it inside your GenServer like
 
-  ```
-  defmodule MyGenServer do
-    use GenServer
-    use FileCache.GSHelper, [id: :my_state]
-  end
-  ```
+      defmodule MyGenServer do
+        use GenServer
+        use FileCache.GSHelper, [id: :my_state]
+      end
 
   It will define two callbacks automatically for you,
   which will store the state when in the terminate/2 callback,
   and restore it in the init/1 callback
 
   However, of course you can override them if you like. And implement the logic for storing and loading yourself.
-  This is what the `use FileCache.GSHelper id: :my_state`
+  This is what the `use FileCache.GSHelper id: :my_state` will add under the hood
 
-  ```
-  defmodule MyGenServer do
-    use GenServer
+      defmodule MyGenServer do
+        use GenServer
 
-    def start_link(), do: ...
-    def init(args) do
-      {:ok, FileCache.load(:my_state) || args}
-    end
+        def start_link(), do: ...
+        def init(args) do
+          {:ok, FileCache.load(:my_state) || args}
+        end
 
-    def terminate(_reason, state) do
-      FileCache.store(:my_state, state)
-    end
-  end
-  ```
+        def terminate(_reason, state) do
+          FileCache.store(:my_state, state)
+        end
+      end
   """
 
   defmacro __using__(id: id) do

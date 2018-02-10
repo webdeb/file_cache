@@ -1,6 +1,6 @@
 defmodule FileCache do
   @moduledoc """
-  Documentation for FileCache.
+  Simple library to load your data from and into a fs-based cache
   """
 
   @doc """
